@@ -6,16 +6,18 @@
 ### **10.07.2025**
 - [x] Projekt erstellt
 - [x] Packages erstellt
-- [x] Model-Klasse Expense fertigstell
+- [x] Model-Klasse Expense fertigstellen
 - [x] Controller Erstellen
 - [x] ExpenseDAO, expenseView Erstellt
 - [x] Liste, loadData / saveData Anlegen
-- [X] Testen ob Datei ersteltl wird
+- [X] Testen ob Datei erstellt wird
 - [x] Erstelle View
 - [x] View mit GridLayout und BorderLayout gebaut
 - [x] Radiobuttons für Kategorien (mit ButtonGroup)
 - [x] Getter für alle Felder in View angelegt
 - [x] Methoden für Button-Handler in View angelegt (addSaveHandler, addShowHandler)
+- [ ] Info, Error, showWindow Erstellen
+- [ ] Value aus dem Text holen (getValueAsText)
 
 <hr>
 

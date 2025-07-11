@@ -28,6 +28,8 @@ public class Controller {
             if (value > max || value < min) {
                 throw new IllegalArgumentException();
             }
+        } catch (NumberFormatException e) {
+            expenseview.
         }
     }
 

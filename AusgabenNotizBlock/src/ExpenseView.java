@@ -105,4 +105,19 @@ public class ExpenseView extends JFrame {
     public void addShowHandler (ActionListener listener) {
         showListBtn.addActionListener(listener);
     }
+
+    //Info, Error Windows
+    public void showErrorWindow(String message) {
+        JOptionPane.showMessageDialog(this, message, "Fehler", JOptionPane.ERROR_MESSAGE);
+    }
+
+    public void showInfoWindow(String message) {
+        JOptionPane.showMessageDialog(this, message, "Info", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    public boolean showConfirmWindow(String message {
+        return JOptionPane.showConfirmDialog(this, message,"Bestätigen", JOptionPane.YES_NO_OPTION) == JOptionPane.OK_OPTION;
+    }
+
+
 }
