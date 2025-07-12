@@ -16,6 +16,8 @@
 - [x] Radiobuttons für Kategorien (mit ButtonGroup)
 - [x] Getter für alle Felder in View angelegt
 - [x] Methoden für Button-Handler in View angelegt (addSaveHandler, addShowHandler)
+- [ ] Info, Error, showWindow Erstellen
+- [ ] Value aus dem Text holen (getValueAsText)
 
 <hr>
 

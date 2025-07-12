@@ -6,8 +6,8 @@ import java.awt.event.ActionListener;
 public class ExpenseView extends JFrame {
 
     private JButton saveBtn, showListBtn;
-
     private JTextField beschreibungTf, summeTf, dateTf;
+    private JRadioButton nahrungBtn, kosmetikBtn, kleidungBtn, sonstBtn;
 
     public ExpenseView ( int width, int height, String windowTitle) {
         setTitle(windowTitle);
@@ -57,19 +57,21 @@ public class ExpenseView extends JFrame {
         JLabel katLabel = new JLabel("Kategorie");
         topPanel.add(katLabel);
 
-        JRadioButton nahrungBtn = new JRadioButton("Nahrung");
+        topPanel.add(new JLabel("")); // Platzhalter wegen RadioButtons in einer Reihe
+
+        nahrungBtn = new JRadioButton("Nahrung");
         topPanel.add(nahrungBtn);
 
-        JRadioButton kosmetikBtn = new JRadioButton("Kosmetik");
+        kosmetikBtn = new JRadioButton("Kosmetik");
         topPanel.add(kosmetikBtn);
 
-        JRadioButton kleidungBtn = new JRadioButton("Kleidung");
+        kleidungBtn = new JRadioButton("Kleidung");
         topPanel.add(kleidungBtn);
 
-        JRadioButton sonstBtn = new JRadioButton("Sonstiges");
+        sonstBtn = new JRadioButton("Sonstiges");
         topPanel.add(sonstBtn);
 
-        //Radio Btn Group
+        //Radio Btn Group wegen eine Auswahl
         ButtonGroup kategorieGroup = new ButtonGroup();
         kategorieGroup.add(nahrungBtn);
         kategorieGroup.add(kosmetikBtn);
@@ -115,7 +117,7 @@ public class ExpenseView extends JFrame {
         JOptionPane.showMessageDialog(this, message, "Info", JOptionPane.INFORMATION_MESSAGE);
     }
 
-    public boolean showConfirmWindow(String message {
+    public boolean showConfirmWindow(String message) {
         return JOptionPane.showConfirmDialog(this, message,"Bestätigen", JOptionPane.YES_NO_OPTION) == JOptionPane.OK_OPTION;
     }
 
