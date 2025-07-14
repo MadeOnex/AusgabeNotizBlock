@@ -17,18 +17,26 @@ public class Controller {
     }
 
     private void onSaveClick(ActionEvent event) {
-        System.out.println(event.getActionCommand());
 
         String beschreibung = expenseview.getBeschreibungTf().getText();
         String datumText = expenseview.getDateTf().getText();
         String summeText = expenseview.getSummeTf().getText();
 
+        // Kein Feld leer bleiben
         if (beschreibung.isEmpty() || summeText.isEmpty() || datumText.isEmpty()) {
             JOptionPane.showMessageDialog(expenseview, "Bitte alle Felder Ausfüllen!");
             return;
         }
         double betragText = getDoubleValueFromText(expenseview.getSummeTf().getText(), 0, 999); // Min 0, Max 999
 
+        //Datum Format
+        LocalDate date;
+        try {
+            date = LocalDate.parse(datumText); //Spezifisches Format
+        } catch(Exception e) {
+            JOptionPane.showMessageDialog(expenseview, "Datum im Format JJJJ-MM-TT eingeben");
+            return;
+        }
 
         //Radio Button
         String kategorie = "";
@@ -49,8 +57,8 @@ public class Controller {
 
 
         int id = expensedao.getExpenseList().size() + 1;
-        expensedao.addExpense(id, beschreibung, betragText, datumText, kategorie);
-
+        expensedao.addExpense(id, beschreibung, betragText, date, kategorie);
+        System.out.println(event.getActionCommand());
         expensedao.saveData();
 
         //Felder Leeren
@@ -69,6 +77,7 @@ public class Controller {
     // Min max Zuordnen und fehler wenn Komma
     private double getDoubleValueFromText(String text, double min, double max) {
         double value = 0;
+        text = text.trim().replace(",", ".");
 
         try {
             value = Double.parseDouble(text);
@@ -76,10 +85,10 @@ public class Controller {
                 throw new IllegalArgumentException();
             }
         } catch (NumberFormatException e) {
-            expenseview.showErrorWindow("Die Kommazahl muss mit Punkt angegeben werden.");
+            expenseview.showErrorWindow("Bitte eine gültige Kommazahl eingeben.");
             throw new RuntimeException(e);
         } catch (IllegalArgumentException e) {
-            expenseview.showErrorWindow("Keine Gültige Ausgabe.");
+            expenseview.showErrorWindow("Keine Gültige Ausgabe: Wert außerhalb des Bereichs.");
             throw new RuntimeException(e);
         } catch (Exception e) {
             throw new RuntimeException(e);

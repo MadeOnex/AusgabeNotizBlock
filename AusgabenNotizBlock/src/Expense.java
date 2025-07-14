@@ -3,14 +3,16 @@ import java.time.LocalDateTime;
 
 public class Expense {
 
+    //Private Klassen
     private int id;
     private String beschreibung;
     private double betrag;
-    private String date;
+    private LocalDate date;
     private String kategorie;
     private LocalDateTime timestamp;
 
-    public Expense(int id, String beschreibung, double betrag, String date, String kategorie) {
+    //Konstruktor
+    public Expense(int id, String beschreibung, double betrag, LocalDate date, String kategorie) {
         this.id = id;
         this.beschreibung = beschreibung;
         this.betrag = betrag;
@@ -19,6 +21,7 @@ public class Expense {
         this.timestamp = LocalDateTime.now();
     }
 
+    //Getter Setter
     public int getId() {
         return id;
     }
@@ -43,13 +46,9 @@ public class Expense {
         this.betrag = betrag;
     }
 
-    public String getDate() {
-        return date;
-    }
+    public LocalDate getDate() { return date; }
 
-    public void setDate(String date) {
-        this.date = date;
-    }
+    public void setDate(LocalDate date) { this.date = date; }
 
     public String getKategorie() {
         return kategorie;

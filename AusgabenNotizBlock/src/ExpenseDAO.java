@@ -1,4 +1,6 @@
 import java.io.*;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class ExpenseDAO {
@@ -12,7 +14,7 @@ public class ExpenseDAO {
     }
 
 
-    public boolean addExpense(int id, String beschreibung, double betrag, String date, String kategorie) {
+    public boolean addExpense(int id, String beschreibung, double betrag, LocalDate date, String kategorie) {
         Expense expense = new Expense(id, beschreibung, betrag, date, kategorie);
         expenseList.add(expense);
         return false;
@@ -26,6 +28,7 @@ public class ExpenseDAO {
     public String getExpenseListAsText() {
         String listString = "";
         String br = "\n";
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 
         for (Expense expense : expenseList) {
             listString += "ID: " + expense.getId() + br;
@@ -33,6 +36,7 @@ public class ExpenseDAO {
             listString += "Betrag: " + expense.getBetrag() + br;
             listString += "Datum: " + expense.getDate() + br;
             listString += "Kategorie: " + expense.getKategorie() + br;
+            listString += "Zeitstempel: " + expense.getTimestamp().format(format) + br;
             listString += br + "----------------------------" + br;
         }
 
@@ -58,6 +62,7 @@ public class ExpenseDAO {
                     line += expense.getBetrag() + SEPARATOR;
                     line += expense.getDate() + SEPARATOR;
                     line += expense.getKategorie() + SEPARATOR;
+                    line += expense.getTimestamp() + SEPARATOR;
 
 
                     line += "\n"; //Zeilenumbruch
@@ -96,7 +101,7 @@ public class ExpenseDAO {
                 int id = Integer.parseInt(data[0]);
                 String beschreibung = data[1];
                 double betrag = Double.parseDouble(data[2]);
-                String datum = data[3];
+                LocalDate datum = LocalDate.parse(data[3]);
                 String kategorie = data[4];
 
                 Expense expense = new Expense(id, beschreibung, betrag, datum, kategorie);

@@ -54,6 +54,33 @@ Halten Sie die Kapselung strikt ein (keine öffentlichen Attribute, nur Getter u
 
 <hr>
 
+## Aufgabenübersicht
+### **10.07.2025**
+- [x] Projekt erstellt
+- [x] Packages erstellt
+- [x] Model-Klasse Expense fertigstellen
+- [x] Controller Erstellen
+- [x] ExpenseDAO, expenseView Erstellt
+- [x] Liste, loadData / saveData Anlegen
+- [X] Testen ob Datei erstellt wird
+- [x] Erstelle View
+- [x] View mit GridLayout und BorderLayout gebaut
+- [x] Radiobuttons für Kategorien (mit ButtonGroup)
+- [x] Getter für alle Felder in View angelegt
+- [x] Methoden für Button-Handler in View angelegt (addSaveHandler, addShowHandler)
+- [X] Info, Error, showWindow Erstellen
+- [X] Value aus dem Text holen (getValueAsText)
+- [X] Button "Speichern" mit Funktion belegen (Daten auslesen, Expense anlegen, speichern)
+- [X] Button "Protokoll anzeigen" mit Funktion belegen (Liste auslesen, Infofenster anzeigen)
+- [X] onSaveClick einrichten
+- [X] loadData einrichten (DAO / Controller)
+- [X] Localtime stempel beim Speichern in DAO
+- [X] Kein Leeres darf bleiben
+- [X] Datum im Format
+- [ ] Löschen funktion
+
+<hr>
+
 Anzeigefenster
 -------------------------------------------------------------
 |               Ausgabennotizblock                          |
