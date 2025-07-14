@@ -1,12 +1,11 @@
 # Projekthandbuch: AusgabenNotizblock
 
 
-
-
 <hr>
 
 
 ## Projektstart & Vorbereitung
+
 1. **Aufgabenstellung und Ziel**
     - Anforderungen genau lesen
     - Wichtige Punkte als eigene Notizen dokumentieren
@@ -34,6 +33,7 @@
 - Eigene `toString()`-Methode für Debug/Protokoll
 - Kategorie ggf. als Enum (später)
 
+
 ### 2. DAO-Klasse (z.B. ExpenseDAO)
 - ArrayList für Datensätze + Getter
 - Methoden zum **Speichern** (`saveData()`) und **Laden** (`loadData()`) als CSV
@@ -41,6 +41,7 @@
 - Immer das gleiche CSV-Format verwenden
 - `addExpense(Expense expense)`: Fügt Objekt zur Liste hinzu, speichert danach, gibt Erfolg zurück (boolean).
 - `getExpenseListAsText()`: Gibt alle Einträge als formatierten String zurück (für Protokollfenster).
+
 
 ### 3. View/GUI (z.B. ExpenseView)
 - Layout einfach halten: GridLayout oder BoxLayout, später GridBagLayout
