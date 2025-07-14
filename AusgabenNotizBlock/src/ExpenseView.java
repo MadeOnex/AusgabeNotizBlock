@@ -2,10 +2,13 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+import java.util.List;
 
 public class ExpenseView extends JFrame {
 
-    private JButton saveBtn, showListBtn;
+    private JButton saveBtn, showListBtn, deleteBtn, closeBtn;
     private JTextField beschreibungTf, summeTf, dateTf;
     private JRadioButton nahrungBtn, kosmetikBtn, kleidungBtn, sonstBtn;
 
@@ -134,8 +137,63 @@ public class ExpenseView extends JFrame {
         JOptionPane.showMessageDialog(this, message, "Info", JOptionPane.INFORMATION_MESSAGE);
     }
 
-    public boolean showConfirmWindow(String message) {
-        return JOptionPane.showConfirmDialog(this, message,"Bestätigen", JOptionPane.YES_NO_OPTION) == JOptionPane.OK_OPTION;
+    //Fenster fasst daten Übersichtlich ein mit Grid
+    public void showMsgDialog(String beschreibung, double betrag, String date, String kategorie, String zeitStamp) {
+        JPanel panel = new JPanel();
+        panel.setLayout(new GridLayout(5,2,5,5));
+        //panel.setBorder(new EmptyBorder(5,5,5,5));
+
+        panel.add(new JLabel("Beschreibung:"));
+        panel.add(new JLabel(beschreibung));
+
+        panel.add(new JLabel("Summe:"));
+        panel.add(new JLabel(String.format("%.2f €", betrag)));
+
+        panel.add(new JLabel("Datum:"));
+        panel.add(new JLabel(date));
+
+        panel.add(new JLabel("Kategorie:"));
+        panel.add(new JLabel(kategorie));
+
+        panel.add(new JLabel("Zeitstempel:"));
+        panel.add(new JLabel(zeitStamp));
+
+        JOptionPane.showMessageDialog(this, panel, "Ausgabeerfassung erfolgreich", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    public void showProtokoll (List<Expense> ausgaben) {
+
+        //Ausrichtung
+        JPanel hauptPanel = new JPanel(new BorderLayout());
+        JPanel tabellenPanel = new JPanel(new GridLayout(0, 5));
+
+
+        // Überschrift
+        tabellenPanel.add(new JLabel("ID"));
+        tabellenPanel.add(new JLabel("Beschreibung"));
+        tabellenPanel.add(new JLabel("Summe"));
+        tabellenPanel.add(new JLabel("Kategorie"));
+        tabellenPanel.add(new JLabel("Zeitstempel"));
+
+        // Eintrag
+        for (Expense expense : ausgaben) {
+            tabellenPanel.add(new JLabel(String.valueOf(expense.getId())));
+            tabellenPanel.add(new JLabel(expense.getBeschreibung()));
+            tabellenPanel.add(new JLabel(String.format("%.2f", expense.getBetrag())));
+            tabellenPanel.add(new JLabel(expense.getKategorie()));
+            tabellenPanel.add(new JLabel(expense.getTimestamp().format(DateTimeFormatter.ofPattern("yyyy-MM-dd, HH:mm 'Uhr'"))));
+        }
+
+        hauptPanel.add(tabellenPanel, BorderLayout.CENTER);
+
+        JPanel buttonPanel = new JPanel();
+        deleteBtn = new JButton("Delete");
+        closeBtn = new JButton("Close");
+        buttonPanel.add(deleteBtn);
+        buttonPanel.add(closeBtn);
+        hauptPanel.add(buttonPanel, BorderLayout.SOUTH);
+
+        JOptionPane.showMessageDialog(this, hauptPanel, "Protokoll aller Ausgaben", JOptionPane.PLAIN_MESSAGE);
     }
 
 

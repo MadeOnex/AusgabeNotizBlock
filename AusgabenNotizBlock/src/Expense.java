@@ -21,6 +21,15 @@ public class Expense {
         this.timestamp = LocalDateTime.now();
     }
 
+    public Expense(int id, String beschreibung, double betrag, LocalDate date, String kategorie, LocalDateTime timestamp) {
+        this.id = id;
+        this.beschreibung = beschreibung;
+        this.betrag = betrag;
+        this.date = date;
+        this.kategorie = kategorie;
+        this.timestamp = timestamp;
+    }
+
     //Getter Setter
     public int getId() {
         return id;

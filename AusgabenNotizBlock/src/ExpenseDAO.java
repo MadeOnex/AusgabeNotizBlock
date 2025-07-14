@@ -1,5 +1,6 @@
 import java.io.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
@@ -103,8 +104,9 @@ public class ExpenseDAO {
                 double betrag = Double.parseDouble(data[2]);
                 LocalDate datum = LocalDate.parse(data[3]);
                 String kategorie = data[4];
+                LocalDateTime timeStamp = LocalDateTime.parse(data[5]);
 
-                Expense expense = new Expense(id, beschreibung, betrag, datum, kategorie);
+                Expense expense = new Expense(id, beschreibung, betrag, datum, kategorie, timeStamp);
                 tempExpenseList.add(expense);
             }
         } catch (IOException e) {

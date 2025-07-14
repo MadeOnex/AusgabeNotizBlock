@@ -1,6 +1,9 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 public class Controller {
 
@@ -27,14 +30,14 @@ public class Controller {
             JOptionPane.showMessageDialog(expenseview, "Bitte alle Felder Ausfüllen!");
             return;
         }
-        double betragText = getDoubleValueFromText(expenseview.getSummeTf().getText(), 0, 999); // Min 0, Max 999
+        double betragText = getDoubleValueFromText(expenseview.getSummeTf().getText(), 0, 99999); // Min 0, Max 999
 
         //Datum Format
         LocalDate date;
         try {
             date = LocalDate.parse(datumText); //Spezifisches Format
         } catch(Exception e) {
-            JOptionPane.showMessageDialog(expenseview, "Datum im Format JJJJ-MM-TT eingeben");
+            JOptionPane.showMessageDialog(expenseview, "Datum im Format yyyy-MM-dd eingeben");
             return;
         }
 
@@ -61,6 +64,14 @@ public class Controller {
         System.out.println(event.getActionCommand());
         expensedao.saveData();
 
+        expenseview.showMsgDialog(
+                beschreibung,
+                betragText,
+                date.format(DateTimeFormatter.ofPattern("yyyy-MM-dd")),
+                kategorie,
+                LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy.MM.dd, HH:mm 'Uhr'"))
+        );
+
         //Felder Leeren
         expenseview.getBeschreibungTf().setText("");
         expenseview.getSummeTf().setText("");
@@ -69,8 +80,8 @@ public class Controller {
 
     public void onShowList(ActionEvent event) {
         System.out.println("Liste Anzeigen");
-        String list = expensedao.getExpenseListAsText();
-        expenseview.showInfoWindow(list);
+        List<Expense> list = expensedao.getExpenseList();
+        expenseview.showProtokoll(list);
     }
 
 

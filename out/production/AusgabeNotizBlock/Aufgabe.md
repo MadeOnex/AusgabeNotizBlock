@@ -77,6 +77,8 @@ Halten Sie die Kapselung strikt ein (keine öffentlichen Attribute, nur Getter u
 - [X] Localtime stempel beim Speichern in DAO
 - [X] Kein Leeres darf bleiben
 - [X] Datum im Format
+- [X] ShowConfirmWindow Anpassen
+- [X] Protokoll Anpassung, TimeStamp Korrektur, Zweiten Konstruktor
 - [ ] Löschen funktion
 
 <hr>
@@ -121,5 +123,5 @@ nachdem Protokoll anzeigen gedrückt wurde
 | Bus Ticket   | 2,80  | Freizeit  | 09.07.2025 ...  |
 | ...          | ...   | ...       | ...             |
 -----------------------------------------------------
-|                            [Schließen]            |
+|       [Delete]               [Schließen]            |
 -----------------------------------------------------

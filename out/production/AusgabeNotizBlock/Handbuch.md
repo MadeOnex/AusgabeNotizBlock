@@ -52,7 +52,8 @@
 - GUI erst grob bauen, dann schrittweise Logik ergänzen
 - `showInfoWindow(String msg)`: Zeigt Infofenster nach Erfolg (z.B. „gespeichert“).
 - `showErrorWindow(String msg)`: Zeigt Fehlermeldung bei falscher Eingabe.
-
+- `showConfirmWindow(String msg`: Struktur beim Speichern mit JPanel erstellbar
+- Protokoll evtl. als Tabelle mit ID-Spalte Bauen (ID-Eingabe, Delete-Btn, Close-Btn)
 
 ### 4. Controller
 - Holt Eingaben aus View, prüft und konvertiert sie
@@ -70,7 +71,7 @@
     - Leert Felder nach Erfolg.
 - `onShowListClick(ActionEvent e)`: Holt Liste als Text und zeigt sie im Infofenster an.
 - `getDoubleValueFromText(String text, min, max)`: Prüft Eingabe auf leer/Fehler, ersetzt Komma, wandelt um, prüft Wertebereich.
-
+- Delete
 
 <hr>
 
