@@ -16,17 +16,17 @@
 - [x] Radiobuttons für Kategorien (mit ButtonGroup)
 - [x] Getter für alle Felder in View angelegt
 - [x] Methoden für Button-Handler in View angelegt (addSaveHandler, addShowHandler)
-- [ ] Info, Error, showWindow Erstellen
-- [ ] Value aus dem Text holen (getValueAsText)
+- [X] Info, Error, showWindow Erstellen
+- [X] Value aus dem Text holen (getValueAsText)
+- [X] Button "Speichern" mit Funktion belegen (Daten auslesen, Expense anlegen, speichern)
+- [X] Button "Protokoll anzeigen" mit Funktion belegen (Liste auslesen, Infofenster anzeigen)
+- [X] onSaveClick einrichten
+- [X] loadData einrichten (DAO / Controller)
+- [ ] Localtime stempel
+- [ ] Löschen funktion
 
-<hr>
 
-## Todos
-- [ ] Button "Speichern" mit Funktion belegen (Daten auslesen, Expense anlegen, speichern)
-- [ ] Button "Protokoll anzeigen" mit Funktion belegen (Liste auslesen, Infofenster anzeigen)
-- [ ] Infofenster "Ausgabe gespeichert" (JOptionPane.showMessageDialog)
-- [ ] Infofenster "Protokoll" (JOptionPane oder neues Fenster/JTextArea)
-- [ ] loadData beim Start integrieren, sodass alte Daten angezeigt werden
+
 
 <hr>
 
@@ -67,3 +67,7 @@
 - Infofenster (JOptionPane) für Bestätigung und Protokoll
 - Buttons per ActionListener mit Controller-Logik verbinden
 - Erst speichern/anlegen/anzeigen, danach das Laden der Daten umsetzen
+- getValue von Text Min 0 Max einrichten
+- onSaveClick einrichten
+- onShowLog einrichten
+- 

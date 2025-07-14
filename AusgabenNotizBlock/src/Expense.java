@@ -6,11 +6,11 @@ public class Expense {
     private int id;
     private String beschreibung;
     private double betrag;
-    private LocalDate date;
+    private String date;
     private String kategorie;
     private LocalDateTime timestamp;
 
-    public Expense(int id, String beschreibung, double betrag, LocalDate date, String kategorie) {
+    public Expense(int id, String beschreibung, double betrag, String date, String kategorie) {
         this.id = id;
         this.beschreibung = beschreibung;
         this.betrag = betrag;
@@ -43,11 +43,11 @@ public class Expense {
         this.betrag = betrag;
     }
 
-    public LocalDate getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

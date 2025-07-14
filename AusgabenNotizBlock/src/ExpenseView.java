@@ -86,6 +86,12 @@ public class ExpenseView extends JFrame {
 
 
     // Getter Textfield
+
+
+    public JTextField getDateTf() {
+        return dateTf;
+    }
+
     public JTextField getBeschreibungTf() {
         return beschreibungTf;
     }
@@ -94,10 +100,21 @@ public class ExpenseView extends JFrame {
         return summeTf;
     }
 
-    public JTextField getDateTf() {
-        return dateTf;
+    public JRadioButton getNahrungBtn() {
+        return nahrungBtn;
     }
 
+    public JRadioButton getKosmetikBtn() {
+        return kosmetikBtn;
+    }
+
+    public JRadioButton getKleidungBtn() {
+        return kleidungBtn;
+    }
+
+    public JRadioButton getSonstBtn() {
+        return sonstBtn;
+    }
 
     //Handler Button
     public void addSaveHandler (ActionListener listener) {
