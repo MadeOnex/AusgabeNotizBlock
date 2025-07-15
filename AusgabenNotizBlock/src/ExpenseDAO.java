@@ -3,6 +3,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class ExpenseDAO {
 
@@ -113,6 +114,19 @@ public class ExpenseDAO {
             System.out.println("Error:" + e.getMessage());
         }
         return tempExpenseList;
+    }
+
+    public boolean removeExpense (int id) {
+        Iterator<Expense> iterator = expenseList.iterator();
+        while (iterator.hasNext()) {
+            Expense expense = iterator.next();
+            if( expense.getId() == id) {
+                iterator.remove();
+                saveData();
+                return true;
+            }
+        }
+        return false;
     }
 
 

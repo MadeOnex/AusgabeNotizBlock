@@ -8,9 +8,12 @@ import java.util.List;
 
 public class ExpenseView extends JFrame {
 
-    private JButton saveBtn, showListBtn, deleteBtn, closeBtn;
+    private JButton saveBtn, showListBtn, closeBtn;
     private JTextField beschreibungTf, summeTf, dateTf;
     private JRadioButton nahrungBtn, kosmetikBtn, kleidungBtn, sonstBtn;
+    private JTextField idTf = new JTextField(6);
+    private JButton deleteBtn = new JButton("Delete");
+    private JDialog protokollDialog;
 
     public ExpenseView ( int width, int height, String windowTitle) {
         setTitle(windowTitle);
@@ -107,9 +110,7 @@ public class ExpenseView extends JFrame {
         return nahrungBtn;
     }
 
-    public JRadioButton getKosmetikBtn() {
-        return kosmetikBtn;
-    }
+    public JRadioButton getKosmetikBtn() { return kosmetikBtn; }
 
     public JRadioButton getKleidungBtn() {
         return kleidungBtn;
@@ -133,9 +134,6 @@ public class ExpenseView extends JFrame {
         JOptionPane.showMessageDialog(this, message, "Fehler", JOptionPane.ERROR_MESSAGE);
     }
 
-    public void showInfoWindow(String message) {
-        JOptionPane.showMessageDialog(this, message, "Info", JOptionPane.INFORMATION_MESSAGE);
-    }
 
     //Fenster fasst daten Übersichtlich ein mit Grid
     public void showMsgDialog(String beschreibung, double betrag, String date, String kategorie, String zeitStamp) {
@@ -165,36 +163,53 @@ public class ExpenseView extends JFrame {
 
         //Ausrichtung
         JPanel hauptPanel = new JPanel(new BorderLayout());
-        JPanel tabellenPanel = new JPanel(new GridLayout(0, 5));
+        JPanel tabellenPanel = new JPanel(new GridLayout(0, 6));
 
 
         // Überschrift
-        tabellenPanel.add(new JLabel("ID"));
-        tabellenPanel.add(new JLabel("Beschreibung"));
-        tabellenPanel.add(new JLabel("Summe"));
-        tabellenPanel.add(new JLabel("Kategorie"));
-        tabellenPanel.add(new JLabel("Zeitstempel"));
+        tabellenPanel.add(new JLabel("<html><b>ID</b><br><hr></html>"));
+        tabellenPanel.add(new JLabel("<html><b>Beschreibung</b><br><hr></html>"));
+        tabellenPanel.add(new JLabel("<html><b>Summe</b><br><hr></html>"));
+        tabellenPanel.add(new JLabel("<html><b>Datum</b><br><hr></html>"));
+        tabellenPanel.add(new JLabel("<html><b>Kategorie</b><br><hr></html>"));
+        tabellenPanel.add(new JLabel("<html><b>Zeitstempel</b><br><hr></html>"));
 
         // Eintrag
         for (Expense expense : ausgaben) {
             tabellenPanel.add(new JLabel(String.valueOf(expense.getId())));
             tabellenPanel.add(new JLabel(expense.getBeschreibung()));
             tabellenPanel.add(new JLabel(String.format("%.2f", expense.getBetrag())));
+            tabellenPanel.add(new JLabel(String.valueOf(expense.getDate())));
             tabellenPanel.add(new JLabel(expense.getKategorie()));
             tabellenPanel.add(new JLabel(expense.getTimestamp().format(DateTimeFormatter.ofPattern("yyyy-MM-dd, HH:mm 'Uhr'"))));
         }
 
         hauptPanel.add(tabellenPanel, BorderLayout.CENTER);
 
-        JPanel buttonPanel = new JPanel();
-        deleteBtn = new JButton("Delete");
-        closeBtn = new JButton("Close");
+        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        buttonPanel.add(new JLabel("ID:"));
+        buttonPanel.add((idTf));
         buttonPanel.add(deleteBtn);
-        buttonPanel.add(closeBtn);
         hauptPanel.add(buttonPanel, BorderLayout.SOUTH);
 
-        JOptionPane.showMessageDialog(this, hauptPanel, "Protokoll aller Ausgaben", JOptionPane.PLAIN_MESSAGE);
+//        JOptionPane.showMessageDialog(this, hauptPanel, "Protokoll aller Ausgaben", JOptionPane.PLAIN_MESSAGE);
+        if (protokollDialog != null && protokollDialog.isShowing()) {
+            protokollDialog.dispose();
+        }
+        protokollDialog = new JDialog(this, "Protokoll aller Ausgaben", true);
+        protokollDialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+
+        protokollDialog.setContentPane(hauptPanel);
+        protokollDialog.pack();
+        protokollDialog.setLocationRelativeTo(this);
+        protokollDialog.setVisible(true);
     }
 
+    public void addDeleteHandler (ActionListener listener) {
+        deleteBtn.addActionListener(listener);
+    }
 
+    public JTextField getIdTf() {
+        return idTf;
+    }
 }

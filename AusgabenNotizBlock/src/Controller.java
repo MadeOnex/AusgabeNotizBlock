@@ -16,6 +16,7 @@ public class Controller {
         expenseview = new ExpenseView(450, 300, "Ausgabennotizblock");
         expenseview.addSaveHandler(this::onSaveClick);
         expenseview.addShowHandler(this::onShowList);
+        expenseview.addDeleteHandler(this::onDeleteClick);
 
     }
 
@@ -36,7 +37,7 @@ public class Controller {
         LocalDate date;
         try {
             date = LocalDate.parse(datumText); //Spezifisches Format
-        } catch(Exception e) {
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(expenseview, "Datum im Format yyyy-MM-dd eingeben");
             return;
         }
@@ -82,6 +83,20 @@ public class Controller {
         System.out.println("Liste Anzeigen");
         List<Expense> list = expensedao.getExpenseList();
         expenseview.showProtokoll(list);
+    }
+
+    public void onDeleteClick(ActionEvent event) {
+        try {
+            int id = Integer.parseInt(expenseview.getIdTf().getText().trim());
+            if (expensedao.removeExpense(id)) {
+                System.out.println("Löschung erfolgreich");
+                expenseview.showProtokoll(expensedao.getExpenseList());
+            } else {
+                expenseview.showErrorWindow("Kein Eintrag mit dieser ID gefunden");
+        }
+            } catch (NumberFormatException e) {
+                expenseview.showErrorWindow("Bitte eine gültige ID eingeben!");
+            }
     }
 
 

@@ -85,7 +85,14 @@ Halten Sie die Kapselung strikt ein (keine öffentlichen Attribute, nur Getter u
 - [X] Protokoll Anpassung, TimeStamp Korrektur, Zweiten Konstruktor(TimeStamp / Ohne)
 - [X] TimeStamp Anpassung, Korrektur Auslesen aus Datei, Datum Format anpassung
 - [X] Delete,Close Btn Hinzugefügt im Protokoll
-- [ ] Löschen funktion
+- [X] Remove/Delete-Methoden sollten boolean zurückgeben, damit Controller und GUI gezielt auf Erfolg/Misserfolg reagieren können.
+- [X] Button, Textfield als Feldvariable anlegen und nur einmal Initialisieren
+- [X] Panel nur Erzeugen
+- [X] Delete Aktuallisieren kein neues fenster / In showProtokol
+- [X] Protokollanzeige mit schließen, delete-Btn, JDialog-Objekt als feld in View nutzen
+- [X] Vor jedem Neuzeigen des Protokolls: prüfen, ob ein altes Fenster noch offen ist; falls ja, dispose().
+- [X] Protokoll in HTML text Bold, Unterstrichen Übersichtlicher 
+
 
 <hr>
 

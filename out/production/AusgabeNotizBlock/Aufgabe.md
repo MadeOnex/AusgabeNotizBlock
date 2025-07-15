@@ -74,12 +74,25 @@ Halten Sie die Kapselung strikt ein (keine öffentlichen Attribute, nur Getter u
 - [X] Button "Protokoll anzeigen" mit Funktion belegen (Liste auslesen, Infofenster anzeigen)
 - [X] onSaveClick einrichten
 - [X] loadData einrichten (DAO / Controller)
+
+<hr>
+
+### **14.07.2025**
 - [X] Localtime stempel beim Speichern in DAO
 - [X] Kein Leeres darf bleiben
 - [X] Datum im Format
 - [X] ShowConfirmWindow Anpassen
-- [X] Protokoll Anpassung, TimeStamp Korrektur, Zweiten Konstruktor
-- [ ] Löschen funktion
+- [X] Protokoll Anpassung, TimeStamp Korrektur, Zweiten Konstruktor(TimeStamp / Ohne)
+- [X] TimeStamp Anpassung, Korrektur Auslesen aus Datei, Datum Format anpassung
+- [X] Delete,Close Btn Hinzugefügt im Protokoll
+- [X] Remove/Delete-Methoden sollten boolean zurückgeben, damit Controller und GUI gezielt auf Erfolg/Misserfolg reagieren können.
+- [X] Button, Textfield als Feldvariable anlegen und nur einmal Initialisieren
+- [X] Panel nur Erzeugen
+- [X] Delete Aktuallisieren kein neues fenster / In showProtokol
+- [X] Protokollanzeige mit schließen, delete-Btn, JDialog-Objekt als feld in View nutzen
+- [X] Vor jedem Neuzeigen des Protokolls: prüfen, ob ein altes Fenster noch offen ist; falls ja, dispose().
+- [X] Protokoll in HTML text Bold, Unterstrichen Übersichtlicher 
+
 
 <hr>
 
