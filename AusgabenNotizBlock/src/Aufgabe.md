@@ -92,6 +92,7 @@ Halten Sie die Kapselung strikt ein (keine öffentlichen Attribute, nur Getter u
 - [X] Protokollanzeige mit schließen, delete-Btn, JDialog-Objekt als feld in View nutzen
 - [X] Vor jedem Neuzeigen des Protokolls: prüfen, ob ein altes Fenster noch offen ist; falls ja, dispose().
 - [X] Protokoll in HTML text Bold, Unterstrichen Übersichtlicher 
+- [X] Textfeld leer nach Speichern Löschen
 
 
 <hr>

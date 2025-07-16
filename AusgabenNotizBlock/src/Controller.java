@@ -90,13 +90,15 @@ public class Controller {
             int id = Integer.parseInt(expenseview.getIdTf().getText().trim());
             if (expensedao.removeExpense(id)) {
                 System.out.println("Löschung erfolgreich");
+                expenseview.getIdTf().setText("");
                 expenseview.showProtokoll(expensedao.getExpenseList());
             } else {
                 expenseview.showErrorWindow("Kein Eintrag mit dieser ID gefunden");
-        }
-            } catch (NumberFormatException e) {
-                expenseview.showErrorWindow("Bitte eine gültige ID eingeben!");
             }
+        } catch (NumberFormatException e) {
+            expenseview.showErrorWindow("Bitte eine gültige ID eingeben!");
+        }
+
     }
 
 
