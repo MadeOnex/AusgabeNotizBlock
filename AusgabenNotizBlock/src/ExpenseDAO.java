@@ -22,28 +22,29 @@ public class ExpenseDAO {
         return false;
     }
 
-    //Zugriff auf Liste
+    //Zugriff auf Liste // Alte Variante
     public ArrayList<Expense> getExpenseList() {
         return expenseList;
     }
 
-    public String getExpenseListAsText() {
-        String listString = "";
-        String br = "\n";
-        DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-
-        for (Expense expense : expenseList) {
-            listString += "ID: " + expense.getId() + br;
-            listString += "Beschreibung " + expense.getBeschreibung() + br;
-            listString += "Betrag: " + expense.getBetrag() + br;
-            listString += "Datum: " + expense.getDate() + br;
-            listString += "Kategorie: " + expense.getKategorie() + br;
-            listString += "Zeitstempel: " + expense.getTimestamp().format(format) + br;
-            listString += br + "----------------------------" + br;
-        }
-
-        return listString;
-    }
+    //Alte Protokollanzeige
+//    public String getExpenseListAsText() {
+//        String listString = "";
+//        String br = "\n";
+//        DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+//
+//        for (Expense expense : expenseList) {
+//            listString += "ID: " + expense.getId() + br;
+//            listString += "Beschreibung " + expense.getBeschreibung() + br;
+//            listString += "Betrag: " + expense.getBetrag() + br;
+//            listString += "Datum: " + expense.getDate() + br;
+//            listString += "Kategorie: " + expense.getKategorie() + br;
+//            listString += "Zeitstempel: " + expense.getTimestamp().format(format) + br;
+//            listString += br + "----------------------------" + br;
+//        }
+//
+//        return listString;
+//    }
 
 
     public void saveData() {

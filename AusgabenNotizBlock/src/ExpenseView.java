@@ -86,7 +86,7 @@ public class ExpenseView extends JFrame {
 
 
 
-        //Visible
+        //Sichbarkeit
         setVisible(true);
     }
 
@@ -135,7 +135,7 @@ public class ExpenseView extends JFrame {
     }
 
 
-    //Fenster fasst daten Übersichtlich ein mit Grid
+    //Fenster fasst daten Übersichtlich ein mit Grid beim Speichern
     public void showMsgDialog(String beschreibung, double betrag, String date, String kategorie, String zeitStamp) {
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(5,2,5,5));

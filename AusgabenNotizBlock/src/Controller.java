@@ -102,7 +102,7 @@ public class Controller {
     }
 
 
-    // Min max Zuordnen und fehler wenn Komma
+    // Min max Zuordnen und Replace beim Komma
     private double getDoubleValueFromText(String text, double min, double max) {
         double value = 0;
         text = text.trim().replace(",", ".");
