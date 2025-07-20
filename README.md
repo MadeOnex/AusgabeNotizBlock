@@ -72,12 +72,6 @@ Sie ist als Übungsprojekt für das MVC-Pattern und Datei-Speicherung entstanden
 
 ---
 
-## Lizenz
-
-MIT License
-
----
-
 ## Autor 
 
 
