@@ -31,7 +31,8 @@ public class Controller {
             JOptionPane.showMessageDialog(expenseview, "Bitte alle Felder Ausfüllen!");
             return;
         }
-        double betragText = getDoubleValueFromText(expenseview.getSummeTf().getText(), 0, 99999); // Min 0, Max 999
+
+        double betragText = getDoubleValueFromText(expenseview.getSummeTf().getText(), 0, 99999); // Min 0, Max 99999
 
         //Datum Format
         LocalDate date;

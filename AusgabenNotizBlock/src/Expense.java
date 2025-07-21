@@ -11,7 +11,7 @@ public class Expense {
     private String kategorie;
     private LocalDateTime timestamp;
 
-    //Konstruktor
+    //Konstruktor Ohne Timestamp
     public Expense(int id, String beschreibung, double betrag, LocalDate date, String kategorie) {
         this.id = id;
         this.beschreibung = beschreibung;
@@ -21,6 +21,7 @@ public class Expense {
         this.timestamp = LocalDateTime.now();
     }
 
+    //Konstruktor mit Timestamp
     public Expense(int id, String beschreibung, double betrag, LocalDate date, String kategorie, LocalDateTime timestamp) {
         this.id = id;
         this.beschreibung = beschreibung;

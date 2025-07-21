@@ -15,40 +15,20 @@ public class ExpenseDAO {
         expenseList = loadData();
     }
 
-
     public boolean addExpense(int id, String beschreibung, double betrag, LocalDate date, String kategorie) {
         Expense expense = new Expense(id, beschreibung, betrag, date, kategorie);
         expenseList.add(expense);
         return false;
     }
 
-    //Zugriff auf Liste // Alte Variante
+    //Zugriff auf Liste
     public ArrayList<Expense> getExpenseList() {
         return expenseList;
     }
 
-    //Alte Protokollanzeige
-//    public String getExpenseListAsText() {
-//        String listString = "";
-//        String br = "\n";
-//        DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-//
-//        for (Expense expense : expenseList) {
-//            listString += "ID: " + expense.getId() + br;
-//            listString += "Beschreibung " + expense.getBeschreibung() + br;
-//            listString += "Betrag: " + expense.getBetrag() + br;
-//            listString += "Datum: " + expense.getDate() + br;
-//            listString += "Kategorie: " + expense.getKategorie() + br;
-//            listString += "Zeitstempel: " + expense.getTimestamp().format(format) + br;
-//            listString += br + "----------------------------" + br;
-//        }
-//
-//        return listString;
-//    }
-
-
     public void saveData() {
 
+        //Erstelle ordner data
         File dir = new File("data");
         if (!dir.exists()) {
             dir.mkdirs();
@@ -67,20 +47,18 @@ public class ExpenseDAO {
                     line += expense.getKategorie() + SEPARATOR;
                     line += expense.getTimestamp() + SEPARATOR;
 
-
                     line += "\n"; //Zeilenumbruch
                     csv.write(line);
                 }
             }
         } catch (IOException e) {
-            //in der Variable e wird der Fehler angenommen
             System.err.println("IO Error: " + e.getMessage());
         } catch (Exception e) {
             System.err.println("Error: " + e.getMessage());
         } finally {
             if (csv != null) {
                 try {
-                    csv.close();
+                    csv.close(); // Wichtig
                 } catch (IOException e) {
                     System.err.println("Error" + e.getMessage());
                 }
@@ -130,5 +108,23 @@ public class ExpenseDAO {
         return false;
     }
 
+    //Alte Protokollanzeige
+//    public String getExpenseListAsText() {
+//        String listString = "";
+//        String br = "\n";
+//        DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+//
+//        for (Expense expense : expenseList) {
+//            listString += "ID: " + expense.getId() + br;
+//            listString += "Beschreibung " + expense.getBeschreibung() + br;
+//            listString += "Betrag: " + expense.getBetrag() + br;
+//            listString += "Datum: " + expense.getDate() + br;
+//            listString += "Kategorie: " + expense.getKategorie() + br;
+//            listString += "Zeitstempel: " + expense.getTimestamp().format(format) + br;
+//            listString += br + "----------------------------" + br;
+//        }
+//
+//        return listString;
+//    }
 
 }
